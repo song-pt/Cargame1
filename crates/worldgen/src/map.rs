@@ -100,7 +100,7 @@ pub fn render(world: &World, px: usize) -> Image {
             img.disc(b.x * scale, b.z * scale, r, [60, 60, 80], 0.9);
         }
     }
-    let mut draw_roads = |roads: &[crate::roads::Road], img: &mut Image| {
+    let draw_roads = |roads: &[crate::roads::Road], img: &mut Image| {
         for r in roads {
             let (rad, col, a): (f32, [u8; 3], f32) = match r.class {
                 RoadClass::Highway => (1.6, [250, 205, 70], 1.0),

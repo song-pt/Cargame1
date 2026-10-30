@@ -44,7 +44,7 @@ struct Lines {
 
 fn line_set(s: &Settlement, rng: &mut Rng) -> Lines {
     let r = s.radius * 1.3;
-    let mut mk = |rng: &mut Rng| -> Vec<(f32, RoadClass)> {
+    let mk = |rng: &mut Rng| -> Vec<(f32, RoadClass)> {
         let mut v = Vec::new();
         match s.style {
             Style::Old => {

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0b0f14">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Endless Road</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="gfx"></canvas>
+
+<div id="menu" class="panel center">
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="subtitle"></p>
+  <label><span data-t="seed"></span>
+    <div class="row">
+      <input id="seed" inputmode="numeric" autocomplete="off">
+      <button id="seed-official" class="small" data-t="official"></button>
+      <button id="seed-random" class="small" data-t="random"></button>
+    </div>
+  </label>
+  <label><span data-t="size"></span>
+    <select id="size">
+      <option value="small" data-t="small"></option>
+      <option value="medium" data-t="medium" selected></option>
+      <option value="large" data-t="large"></option>
+    </select>
+  </label>
+  <label><span data-t="quality"></span>
+    <select id="quality">
+      <option value="high" data-t="high"></option>
+      <option value="low" data-t="low"></option>
+    </select>
+  </label>
+  <label><span data-t="language"></span>
+    <select id="lang-menu" class="lang-select"></select>
+  </label>
+  <button id="start" class="primary" data-t="start"></button>
+  <p id="err" class="err"></p>
+</div>
+
+<div id="loading" class="panel center hidden">
+  <p data-t="loading"></p>
+  <div class="bar"><div id="bar-fill"></div></div>
+  <p id="stage" class="sub"></p>
+</div>
+
+<div id="hud" class="hidden">
+  <div id="top-left">
+    <div id="fps"></div>
+  </div>
+  <div id="top-right">
+    <button id="btn-settings" class="icon" aria-label="settings">⚙</button>
+  </div>
+  <canvas id="minimap" width="160" height="160"></canvas>
+  <div id="gauge">
+    <div id="speed">0</div>
+    <div id="unit">km/h</div>
+    <div id="gear">1</div>
+    <div class="meter"><div id="rpm"></div></div>
+    <div class="meter fuel"><div id="fuelbar"></div></div>
+    <div id="notice"></div>
+  </div>
+  <div id="help" data-t="help"></div>
+  <div id="touch" class="hidden">
+    <div class="tl">
+      <button data-key="TouchLeft" class="tbtn steer">◀</button>
+      <button data-key="TouchRight" class="tbtn steer">▶</button>
+    </div>
+    <div class="tr">
+      <div class="col">
+        <button data-key="TouchUp" class="tbtn small">＋</button>
+        <button data-key="TouchDown" class="tbtn small">－</button>
+        <button data-key="KeyR" class="tbtn small">⟲</button>
+      </div>
+      <div class="col">
+        <button data-key="TouchHand" class="tbtn small">P</button>
+        <button data-key="TouchBrake" class="tbtn pedal brake">B</button>
+      </div>
+      <button data-key="TouchGas" class="tbtn pedal gas">G</button>
+    </div>
+  </div>
+</div>
+
+<div id="settings" class="panel center hidden">
+  <h2 data-t="settings"></h2>
+  <label><span data-t="time"></span> <b id="time-val"></b>
+    <input id="time" type="range" min="0" max="24" step="0.05" value="16.5">
+  </label>
+  <label><span data-t="timeSpeed"></span>
+    <select id="time-speed">
+      <option value="0" data-t="paused"></option>
+      <option value="60" data-t="realtime"></option>
+      <option value="600" data-t="fast"></option>
+    </select>
+  </label>
+  <label><span data-t="transmission"></span>
+    <select id="trans"><option value="auto" data-t="auto"></option><option value="manual" data-t="manual"></option></select>
+  </label>
+  <label><span data-t="fuel"></span>
+    <select id="fuel"><option value="on" data-t="on"></option><option value="off" data-t="off"></option></select>
+  </label>
+  <label><span data-t="assists"></span>
+    <select id="assists"><option value="on" data-t="on"></option><option value="off" data-t="off"></option></select>
+  </label>
+  <label><span data-t="quality"></span>
+    <select id="quality-ingame"><option value="high" data-t="high"></option><option value="low" data-t="low"></option></select>
+  </label>
+  <label class="touch-only"><span data-t="steering"></span>
+    <select id="steering"><option value="buttons" data-t="buttons"></option><option value="gyro" data-t="gyro"></option></select>
+  </label>
+  <label><span data-t="language"></span>
+    <select id="lang-ingame" class="lang-select"></select>
+  </label>
+  <div class="row">
+    <button id="copy-debug" data-t="copyDebug"></button>
+    <button id="new-world" data-t="newWorld"></button>
+  </div>
+  <button id="close-settings" class="primary" data-t="close"></button>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
