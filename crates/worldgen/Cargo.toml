@@ -1,0 +1,15 @@
+[package]
+name = "worldgen"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+libm.workspace = true
+png = { version = "0.18", optional = true }
+
+[features]
+cli = ["png"]
+
+[[bin]]
+name = "worldmap"
+required-features = ["cli"]

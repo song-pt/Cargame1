@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = ["crates/worldgen"]
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+
+[workspace.dependencies]
+libm = "0.2"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 4
+
+# 世界生成在測試裡也需要較快的速度
+[profile.test]
+opt-level = 3
+
+[profile.dev.package."*"]
+opt-level = 2
