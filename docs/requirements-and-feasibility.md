@@ -350,5 +350,5 @@
 | M4 | 網頁 | 模擬物理調校、賽事、音頻、多語言 UI、存檔；可選 NPC 交通 |
 | M5 | 原生 | Swift 外殼、硬件光追、MetalFX、iOS 發熱優化、上架 |
 
-### 9.6 待確認
-1. 倉庫 `song-pt/Cargame1` 是公開還是私有？GitHub Pages 對私有倉庫需要付費帳戶（GitHub Pro）。若是私有且不想付費，可改用 Cloudflare Pages 等免費託管，或把倉庫設為公開。
+### 9.6 部署
+倉庫 `song-pt/Cargame1` 為公開倉庫，可免費使用 GitHub Pages。用戶只需一次性設定：倉庫 Settings → Pages → Source 選「GitHub Actions」。
