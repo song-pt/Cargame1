@@ -38,6 +38,7 @@ $("start").onclick = async () => {
     }
     fit();
     game = await create_game(canvas, loader, $("quality").value);
+    window.__game = () => game;
     $("loading").classList.add("hidden");
     $("hud").classList.remove("hidden");
     if (touch) $("touch").classList.remove("hidden");
@@ -105,7 +106,7 @@ function drawMinimap(h) {
 }
 
 let frames = 0;
-window.__game = () => game;
+
 function loop(t) {
   if (window.__pause) { requestAnimationFrame(loop); return; }
   game.frame(t);
