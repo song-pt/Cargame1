@@ -1,0 +1,8 @@
+[package]
+name = "vehicle"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+libm.workspace = true
+glam = { version = "0.34", features = ["scalar-math"] }
